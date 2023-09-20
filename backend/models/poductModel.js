@@ -5,7 +5,7 @@ const productShema = mongoose.Schema({
     type: String,
     required: [true, "Please Enter Name"],
   },
-  description: {    
+  description: {
     type: String,
     required: [true, "Please Enter Description"],
   },
@@ -13,10 +13,6 @@ const productShema = mongoose.Schema({
     type: Number,
     required: [true, "Please Enter Poduct Price"],
     maxLength: [8, "Price Cannot exceed 8 Character"],
-  },
-  rating: {
-    type: Number,
-    default: 0,
   },
   images: [
     {
@@ -46,6 +42,11 @@ const productShema = mongoose.Schema({
   },
   reviews: [
     {
+      user: {
+        type: mongoose.Schema.ObjectId,
+        ref: "User",
+        required: true,
+      },
       name: {
         type: String,
         required: true,
@@ -60,6 +61,15 @@ const productShema = mongoose.Schema({
       },
     },
   ],
+  ratings: {
+    type: Number,
+    default: 0,
+  },
+  user: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User",
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
