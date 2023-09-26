@@ -10,21 +10,14 @@ module.exports = {
       "@utils": path.resolve(__dirname, "src/utils/"),
       "@images": path.resolve(__dirname, "src/assets/images"),
       "@icons": path.resolve(__dirname, "src/assets/icons"),
-      "@components": path.resolve(
-        __dirname,
-        "src/components"
-      ),
+      "@shared-components": path.resolve(__dirname, "src/components/shared-components"),
       "@constants": path.resolve(__dirname, "src/constants"),
-      "@layouts": path.resolve(
+      "@shared-layouts": path.resolve(
         __dirname,
-        "src/components/layouts"
+        "src/components/shared-layouts"
       ),
       "@hooks": path.resolve(__dirname, "src/hooks"),
       "@pages": path.resolve(__dirname, "src/pages"),
-      "@containers": path.resolve(
-        __dirname,
-        "src/components/containers"
-      ),
     },
   },
 };
