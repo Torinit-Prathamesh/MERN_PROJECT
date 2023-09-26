@@ -3,6 +3,8 @@ import "./style.css";
 import CustomCard from "@shared-components/CustomCard";
 
 function Home() {
+  const array = Array(6)?.fill("");
+
   return (
     <>
       <div className="banner mt-11 min-h-screen flex flex-col text-center items-center justify-center bg-palette-lighter after:bg-palette-light">
@@ -24,12 +26,9 @@ function Home() {
         Featured Products
       </h2>
       <div id="container" className="grid grid-cols-3 gap-4 m-4">
-        <CustomCard />
-        <CustomCard />
-        <CustomCard />
-        <CustomCard />
-        <CustomCard />
-        <CustomCard />
+        {array?.map(() => (
+          <CustomCard />
+        ))}
       </div>
     </>
   );
