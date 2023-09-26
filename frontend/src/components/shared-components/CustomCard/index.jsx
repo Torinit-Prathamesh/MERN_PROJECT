@@ -4,7 +4,7 @@ import ImagePlaceHolder from "@images/imageplaceholder.png";
 
 function CustomCard({ image, title, rating, reviewCount, price }) {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300 cursor-pointer">
       <img
         className="w-full"
         src={image ?? ImagePlaceHolder}
