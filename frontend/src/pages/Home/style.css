@@ -1,0 +1,7 @@
+.banner::after {
+    content: "";
+    width: 100vw;
+    height: 100vmin;
+    position: absolute;
+    clip-path: polygon(100% 83%, 0% 100%, 100% 100%);
+}
