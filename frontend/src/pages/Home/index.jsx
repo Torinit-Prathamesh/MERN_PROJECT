@@ -51,7 +51,7 @@ function Home() {
       </h2>
       <div
         id="container"
-        className="flex gap-4 mx-8 my-4 flex-wrap justify-center max-w-full"
+        className="md:flex gap-4 mx-8 my-4 flex-wrap justify-center max-w-full"
       >
         {productArray?.map((item, index) => {
           return (

@@ -5,16 +5,16 @@ import { messages } from "@constants/messages";
 const initialState = {
   isLoading: false,
   product: [],
-  productCount: 0,
   error: "",
 };
 
-export const getProducts = createAsyncThunk(
-  "productList/getProducts",
-  async () => {
+export const getProductDetails = createAsyncThunk(
+  "productDetails/getProducts",
+  async (id) => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/products`);
-      console.log("response: ", response);
+
+      const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/product/${id}`);
+
       if (response.status !== 200) {
         return { data: {}, success: false, message: messages.DEFAULT };
       }
@@ -31,10 +31,10 @@ export const getProducts = createAsyncThunk(
 );
 
 const productListSlice = createSlice({
-  name: "productList",
+  name: "productDetails",
   initialState,
   extraReducers: {
-    [getProducts.fulfilled]: (state, action) => {
+    [getProductDetails.fulfilled]: (state, action) => {
       const updatedData = action.payload;
 
       if (!updatedData.success) {
@@ -44,14 +44,13 @@ const productListSlice = createSlice({
         return;
       }
 
-      state.product = updatedData?.products;
-      state.productCount = updatedData?.productCount;
+      state.product = updatedData?.product;
       state.isLoading = false;
     },
-    [getProducts.pending]: (state) => {
+    [getProductDetails.pending]: (state) => {
       state.isLoading = true;
     },
-    [getProducts.rejected]: (state) => {
+    [getProductDetails.rejected]: (state) => {
       state.product = initialState.product;
       state.isLoading = initialState.isLoading;
       state.error = messages.DEFAULT;

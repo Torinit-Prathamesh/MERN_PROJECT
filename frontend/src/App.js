@@ -1,4 +1,4 @@
-import ProductDetailView from "@shared-components/ProductDetailView";
+import ProductDetail from "@pages/ProductDetail";
 import Alert from "@shared-layouts/Alert";
 import Footer from "@shared-layouts/Footer";
 import Header from "@shared-layouts/Header";
@@ -16,7 +16,7 @@ function App() {
         <Header />
         <Routes>
           <Route extact path="/" element={<Home />} />
-          <Route extact path="/product/:id" element={<ProductDetailView />} />
+          <Route extact path="/product/:id" element={<ProductDetail />} />
         </Routes>
         <Footer />
       </ReduxProvider>
